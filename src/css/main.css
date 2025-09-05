@@ -7,6 +7,14 @@
     --accent-color: #A0B9C0;
 }
 
+body.dark-mode {
+    --light-gray: #121212;
+    --secondary-black: #f0f0f0;
+    --border-gray: #333333;
+    background-color: var(--light-gray);
+    color: var(--secondary-black);
+}
+
 html, body {
     height: 100%;
 }
@@ -560,4 +568,30 @@ main {
 .cinematic-element.title,
 .cinematic-element.paragraph {
     color: var(--primary-black);
+}
+
+#scroll-to-top {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    background-color: var(--primary-black);
+    color: var(--primary-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+}
+
+#scroll-to-top.show {
+    opacity: 1;
+    pointer-events: auto;
 }

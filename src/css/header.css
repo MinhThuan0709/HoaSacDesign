@@ -154,6 +154,7 @@
 .nav-links {
     display: flex;
     gap: 40px;
+    margin-left: auto;
 }
 
 .nav-links li a {
@@ -191,6 +192,31 @@
     cursor: pointer;
     padding: 10px;
     outline: none;
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.4em;
+    margin-left: 20px;
+    color: var(--secondary-black);
+}
+
+body.dark-mode .theme-toggle {
+    color: var(--primary-white);
+}
+
+body.dark-mode .main-nav {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+body.dark-mode .nav-links li a:hover {
+    color: var(--primary-white);
+}
+
+body.dark-mode .nav-links li a::after {
+    background-color: var(--primary-white);
 }
 
 .nav-toggle .icon-bar {
