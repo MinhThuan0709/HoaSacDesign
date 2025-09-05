@@ -21,6 +21,23 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // --- Dark mode toggle ---
+    const themeToggle = document.querySelector('.theme-toggle');
+    if (themeToggle) {
+        const storedTheme = localStorage.getItem('theme');
+        if (storedTheme === 'dark') {
+            document.body.classList.add('dark-mode');
+            themeToggle.innerHTML = '<i class="ri-sun-line"></i>';
+        }
+
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.contains('dark-mode');
+            themeToggle.innerHTML = isDark ? '<i class="ri-sun-line"></i>' : '<i class="ri-moon-line"></i>';
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+    }
+
     // --- HIỆU ỨNG NÂNG CẤP: Hiệu ứng cuộn cho các section thông thường bằng Anime.js ---
     const sectionsToAnimate = document.querySelectorAll('.fade-in-section');
     const observer = new IntersectionObserver((entries) => {
@@ -251,4 +268,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             }
         }
+    // --- Scroll to top button ---
+    const scrollTopBtn = document.getElementById('scroll-to-top');
+    if (scrollTopBtn) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollTopBtn.classList.add('show');
+            } else {
+                scrollTopBtn.classList.remove('show');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
 });
